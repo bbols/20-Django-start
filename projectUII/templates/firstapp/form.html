@@ -1,0 +1,32 @@
+{% extends 'firstapp/base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>FORM</h1>
+<div>
+    <h2>Меню</h2>
+    <nav>
+        <a href="{% url 'index' %}">переход к странице index</a>
+    </nav>
+    <h2>Переменные</h2>
+    {% if message %}
+    <li>message: {{message}}</li>
+    {%endif%}
+    {% if name %}
+    <li>Name: {{name}}</li>
+    {%endif%}
+    {% if email %}
+    <li>Email: {{email}}</li>
+    {%endif%}
+    <h1>Форма</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

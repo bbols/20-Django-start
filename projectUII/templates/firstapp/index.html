@@ -1,0 +1,20 @@
+{% extends 'firstapp/base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>INDEX</h1>
+<div>
+    <h2>Меню</h2>
+    <nav>
+        <a href="{% url 'form' %}">переход к странице form</a>
+    </nav>
+    <h2>Переменные</h2>
+    {% if message %}
+    {{message}}
+    {%endif%}
+</div>
+{% endblock %}
