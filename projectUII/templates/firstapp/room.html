@@ -6,16 +6,18 @@
 {% endblock %}
 
 {% block content %}
-<h1>INDEX</h1>
+<h1>ROOM LIST</h1>
 <div>
     <h2>Меню</h2>
     <nav>
         <a href="{% url 'form' %}">переход к странице form</a>
-        <a href="{% url 'room' %}">переход к странице rooms</a>
+        <a href="{% url 'index' %}">переход к странице index</a>
     </nav>
-    <h2>Переменные</h2>
-    {% if message %}
-    {{message}}
+    <h2>Список комнат</h2>
+    {% if room %}
+        {%for r in room%}
+            <li>{{r}}</li>
+        {%endfor%}
     {%endif%}
 </div>
 {% endblock %}
