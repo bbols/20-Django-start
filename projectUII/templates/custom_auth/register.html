@@ -1,0 +1,18 @@
+{% extends 'firstapp/base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>REGISTRATION</h1>
+<div>
+    <h2>Регистрация</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+{% endblock %}

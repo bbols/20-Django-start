@@ -6,11 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>INDEX</h1>
+<h1>LOGIN</h1>
 <div>
-    <h2>Переменные</h2>
-    {% if message %}
-    {{message}}
-    {%endif%}
+    <h2>Вход</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Авторизация</button>
+    </form>
 </div>
 {% endblock %}

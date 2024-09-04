@@ -1,0 +1,25 @@
+{% extends 'firstapp/base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>REGISTER</h1>
+<div>
+    <h2>Меню</h2>
+    <nav>
+        <a href="{% url 'form' %}">переход к странице form</a>
+        <a href="{% url 'room' %}">переход к странице rooms</a>
+        <a href="{% url 'room' %}">переход к странице index</a>
+        <a href="{% url 'login' %}">переход к странице LOGIN</a>
+    </nav>
+    <h2>Регистрация</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+{% endblock %}
