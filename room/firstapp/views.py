@@ -4,6 +4,7 @@ from .forms import FirstForm
 from .models import Room
 from django.views.generic import TemplateView
 from django.views.generic import FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class IndexView(TemplateView):
     template_name = "firstapp/index.html"
@@ -13,7 +14,8 @@ class IndexView(TemplateView):
         context['message'] = 'Hello World!'
         return context
 
-class RoomView(TemplateView):
+class RoomView(LoginRequiredMixin,TemplateView):
+
     template_name = "firstapp/room.html"
 
     def get_context_data(self, **kwargs):
@@ -30,6 +32,8 @@ class FormViewCBV(FormView):
         name = form.cleaned_data['name']
         email = form.cleaned_data['email']
         context= self.get_context_data(form=form,name=name,email=email)
+
+
 #legacy code fbv
 """
 def index_view(request):
