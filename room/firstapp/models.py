@@ -34,6 +34,7 @@ class Room(BaseModel):
     #фурнитура
     furniture=models.ManyToManyField('Furniture',blank=True)
 
+
     def __str__(self):
         return f"{self.name} | куратор {self.user}"
 
