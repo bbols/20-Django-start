@@ -64,6 +64,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "firstapp.context_processors.get_joke",
             ],
         },
     },
@@ -122,9 +123,9 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 AUTH_USER_MODEL = 'custom_auth.CustomUser'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/index/'
 
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/index/'
 
 LOGIN_URL = '/login/'
 

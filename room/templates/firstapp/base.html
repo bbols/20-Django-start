@@ -18,7 +18,7 @@
         <nav>
             <li><a href="{% url 'index' %}">переход к странице index</a></li>
             <li><a href="{% url 'form' %}">переход к странице form</a></li>
-            <li><a href="{% url 'room' %}">переход к странице rooms</a></li>
+            <li><a href="{% url 'room' %}">переход к странице rooms, необходим аккаунт</a></li>
             <li><a href="{% url 'login' %}">переход к странице login</a></li>
             <li><a href="{% url 'logout' %}">переход к странице logout</a></li>
             <li><a href="{% url 'register' %}">переход к странице register</a></li>
@@ -26,5 +26,10 @@
             {% block content %}{% endblock %}
         </div>
     </main>
+    <footer>
+        {% if joke %}
+            <p>context_proc: {{joke}}</p>
+        {%endif%}
+    </footer>
 </body>
 </html>

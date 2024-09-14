@@ -8,12 +8,51 @@
 {% block content %}
 <h1>ROOM LIST</h1>
 <div>
-    <h2>Список комнат</h2>
     {% if room %}
         {%for r in room%}
-            <li>{{r}}</li>
-            <li>{{r.fiew_title}}</li>
+            <h3>Комната - {{r}}</h3>
+            <p><strong>Двери:</strong></p>
+            {% for i in r.doors.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
+
+            <p><strong>Окна:</strong></p>
+            {% for i in r.windows.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
+
+            <p><strong>Фурнитура:</strong></p>
+            {% for i in r.furniture.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
         {%endfor%}
+
+        <div class="pagination">
+            <h3>Переключение комнат:</h3>
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <li>Комнат нет в наличии</li>
     {%endif%}
 </div>
 {% endblock %}

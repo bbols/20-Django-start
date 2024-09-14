@@ -6,6 +6,8 @@ from faker import Faker
 from mixer.backend.django import mixer
 # Create your tests here.
 
+#паггинация
+
 class PostTestCase(TestCase):
     def setUp(self):
         self.date = timezone.now()
