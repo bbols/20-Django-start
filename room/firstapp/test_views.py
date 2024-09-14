@@ -9,6 +9,7 @@ class OpenViewsTest(TestCase):
         self.client = Client()
         print("start test views.py")
 
+
     def test_statuser(self):
         #TODO GET
         #проверка ответа со страницы логин
