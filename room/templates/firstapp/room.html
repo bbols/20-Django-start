@@ -11,12 +11,27 @@
     {% if room %}
         {%for r in room%}
             <h3>Комната - {{r}}</h3>
+
             <p><strong>Двери:</strong></p>
-            {% for i in r.doors.all%}
-                <p>{{i}}</p>
-            {% empty %}
-                <li>Не присутствует.</li>
-            {%endfor%}
+            {% with all_door=r.doors.all %}
+                {% for i in all_door%}
+                    <p>{{i}}</p>
+                {% empty %}
+                    <li>Не присутствует.</li>
+                {%endfor%}
+
+                {% for i in all_door%}
+                    <p>{{i}}</p>
+                {% empty %}
+                    <li>Не присутствует.</li>
+                {%endfor%}
+
+                {% for i in all_door%}
+                    <p>{{i}}</p>
+                {% empty %}
+                    <li>Не присутствует.</li>
+                {%endfor%}
+            {%endwith%}
 
             <p><strong>Окна:</strong></p>
             {% for i in r.windows.all%}
@@ -24,8 +39,28 @@
             {% empty %}
                 <li>Не присутствует.</li>
             {%endfor%}
+            {% for i in r.windows.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
+            {% for i in r.windows.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
 
             <p><strong>Фурнитура:</strong></p>
+            {% for i in r.furniture.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
+            {% for i in r.furniture.all%}
+                <p>{{i}}</p>
+            {% empty %}
+                <li>Не присутствует.</li>
+            {%endfor%}
             {% for i in r.furniture.all%}
                 <p>{{i}}</p>
             {% empty %}

@@ -30,7 +30,7 @@ class RoomView(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         #tag_name = self.kwargs.get('room',None)
-        return Room.objects.all()
+        return Room.objects.prefetch_related("doors","windows","furniture").all()
 
 
 class FormViewCBV(FormView):

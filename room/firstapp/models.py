@@ -10,7 +10,7 @@ class ActiveManager(models.Manager):
 
 #База данных
 class BaseModel(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, db_index=True)
 
     class Meta:
         abstract = True
