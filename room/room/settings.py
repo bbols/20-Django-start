@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'firstapp',
     'custom_auth',
     'debug_toolbar',
+
 ]
 
 MIDDLEWARE = [
