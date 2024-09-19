@@ -29,7 +29,10 @@
     <footer>
         {% if joke %}
             <p>context_proc: {{joke}}</p>
+
         {%endif%}
     </footer>
+    {% load static %}
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
