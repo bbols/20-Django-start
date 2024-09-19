@@ -23,6 +23,7 @@ urlpatterns = [
     path('',include('firstapp.urls')),
     path('',include('custom_auth.urls')),
     #path('accounts/', include('django.contrib.auth.urls'))
+    path('api-auth/', include('rest_framework.urls'))
 ]
 if settings.DEBUG:
     import debug_toolbar
