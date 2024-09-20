@@ -22,3 +22,4 @@ class WindowViewSet(viewsets.ModelViewSet):
 class FurnitureViewSet(viewsets.ModelViewSet):
     queryset = Furniture.objects.all()
     serializer_class = FurnitureSerializer
+
