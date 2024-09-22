@@ -4,8 +4,11 @@ from .forms import FirstForm
 from .models import Room
 from django.views.generic import TemplateView
 from django.views.generic import ListView
-from django.views.generic import FormView
+from django.views.generic import FormView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from custom_auth.models import CustomUser
+
 
 class IndexView(TemplateView):
     template_name = "firstapp/index.html"
@@ -43,6 +46,9 @@ class FormViewCBV(FormView):
         email = form.cleaned_data['email']
         context= self.get_context_data(form=form,name=name,email=email)
 
+class UserDetailView(LoginRequiredMixin,DetailView):
+    template_name = "firstapp/profile.html"
+    model = CustomUser
 
 #legacy code fbv
 """

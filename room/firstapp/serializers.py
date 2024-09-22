@@ -7,9 +7,24 @@ from custom_auth.models import CustomUser
 
 # Serializers define the API representation.
 class RoomSerializer(serializers.HyperlinkedModelSerializer):
+    doors = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name='door-detail',
+        read_only = True
+    )
+    windows = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name='window-detail',
+        read_only=True
+    )
+    furniture = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name = 'furniture-detail',
+        read_only=True
+    )
     class Meta:
         model = Room
-        fields = '__all__'
+        fields = ['user','doors','windows','furniture']
 
 class CustomUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -17,6 +17,9 @@
             <h2>Меню</h2>
         <nav>
             <li><a href="{% url 'index' %}">переход к странице index</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' user.pk %}">переход к странице profile {{user}}</a></li>
+            {%endif%}
             <li><a href="{% url 'form' %}">переход к странице form</a></li>
             <li><a href="{% url 'room' %}">переход к странице rooms, необходим аккаунт</a></li>
             <li><a href="{% url 'login' %}">переход к странице login</a></li>
